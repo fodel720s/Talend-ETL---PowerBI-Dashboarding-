@@ -1,0 +1,125 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  Dim 05 avr. 2020 à 07:24
+-- Version du serveur :  5.7.24
+-- Version de PHP :  7.2.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `bd-input`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cout-produit`
+--
+
+DROP TABLE IF EXISTS `cout-produit`;
+CREATE TABLE IF NOT EXISTS `cout-produit` (
+  `id` int(11) DEFAULT NULL,
+  `Ref_produit` varchar(5) DEFAULT NULL,
+  `Montant` int(6) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `cout-produit`
+--
+
+INSERT INTO `cout-produit` (`id`, `Ref_produit`, `Montant`) VALUES
+(1, 'P0123', 10000),
+(2, 'P0124', 6000),
+(3, 'P0125', 60000),
+(4, 'P0126', 700000),
+(5, 'P0127', 350000),
+(6, 'P0128', 12000),
+(7, 'P0129', 10000),
+(8, 'P0130', 600000),
+(9, 'P0131', 250000),
+(10, 'P0132', 25000),
+(11, 'P0133', 30000);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `fournisseur`
+--
+
+DROP TABLE IF EXISTS `fournisseur`;
+CREATE TABLE IF NOT EXISTS `fournisseur` (
+  `id` int(11) DEFAULT NULL,
+  `Code_fournissuer` int(4) DEFAULT NULL,
+  `Nom` varchar(9) DEFAULT NULL,
+  `Prenom` varchar(7) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `fournisseur`
+--
+
+INSERT INTO `fournisseur` (`id`, `Code_fournissuer`, `Nom`, `Prenom`) VALUES
+(29, 1111, 'Bej', 'Mohamed'),
+(30, 2222, 'Trablesi', 'Ali'),
+(31, 3333, 'Ben Salah', 'Amin'),
+(32, 4444, 'Najjar', 'Anis'),
+(33, 5555, 'Ben Amor', 'Mohamed'),
+(34, 6666, 'Bouali', 'Naceur'),
+(35, 7777, 'Masmoudi', 'Tarek');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produit`
+--
+
+DROP TABLE IF EXISTS `produit`;
+CREATE TABLE IF NOT EXISTS `produit` (
+  `id` int(11) DEFAULT NULL,
+  `Ref_produit` varchar(5) DEFAULT NULL,
+  `Nom` varchar(19) DEFAULT NULL,
+  `Categorie` varchar(8) DEFAULT NULL,
+  `Date` datetime DEFAULT NULL,
+  `Code_fournisseur` int(4) DEFAULT NULL,
+  `Quantite_d_achat` int(1) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `produit`
+--
+
+INSERT INTO `produit` (`id`, `Ref_produit`, `Nom`, `Categorie`, `Date`, `Code_fournisseur`, `Quantite_d_achat`) VALUES
+(12, 'P0122', 'clavier', 'lenovo', '2020-03-12 00:00:00', 1111, 2),
+(13, 'P0123', 'sourie', 'lenovo', '2019-04-14 00:00:00', 1111, 3),
+(14, 'P0124', 'ecran', 'Samsung', '2018-04-14 00:00:00', 2222, 2),
+(15, 'P0125', 'ordinateur portable', 'HP', '2018-03-11 00:00:00', 3333, 4),
+(16, 'P0126', 'notebook', 'Acer', '2018-03-21 00:00:00', 4444, 3),
+(17, 'P0127', 'webcam', 'Sony', '2019-02-22 00:00:00', 5555, 1),
+(18, 'P0128', 'flash disque', 'San disk', '2018-03-14 00:00:00', 6666, 6),
+(19, 'P0129', 'ordinateur ', 'HP', '2018-02-11 00:00:00', 3333, 2),
+(20, 'P0130', 'imprimante', 'Canon', '2019-03-15 00:00:00', 7777, 3),
+(21, 'P0131', 'stylo ', 'Canon', '2018-04-14 00:00:00', 7777, 1),
+(22, 'P0132', 'Manette', 'Sony', '2020-05-19 00:00:00', 5555, 2),
+(23, 'P0133', 'sacouche', 'Samsung', '2018-03-20 00:00:00', 2222, 3),
+(24, 'P0123', 'sourie', 'lenovo', '2019-04-17 00:00:00', 1111, 2),
+(25, 'P0124', 'ecran', 'Samsung', '2018-03-13 00:00:00', 2222, 3),
+(26, 'P0133', 'sacouche', 'Samsung', '2019-02-10 00:00:00', 2222, 2),
+(27, 'P0133', 'sacouche', 'Samsung', '2018-02-11 00:00:00', 2222, 2),
+(28, 'P0125', 'ordinateur portable', 'HP', '2018-04-21 00:00:00', 3333, 5);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
